@@ -21,6 +21,16 @@ const main = (loc) => {
   console.log("Hello World, I'm doing well thank you",loc);
   $(".infoHolder").hide();
   populateDeviceList();
+  getFamily();
+}
+
+const getFamily = () => {
+  request(loc+"/api/family", (err, resp, body) => {
+    body = allParse(body);
+    if(body.name !== undefined){
+      $(".title").html(body.name);
+    }
+  })
 }
 
 const populateDeviceInfo = (name) => {
