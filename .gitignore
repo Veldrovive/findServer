@@ -1,1 +1,4 @@
 node_modules
+/dist
+/web/public/build
+*.db
