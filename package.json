@@ -11,6 +11,7 @@
     "buildApi": "babel src -s -D -d dist",
     "buildWeb": "browserify web/js -t babelify --outfile web/public/build/bundle.js",
     "start": "node dist",
+    "prestart": "npm run -s build",
     "test": "eslint src"
   },
   "eslintConfig": {
