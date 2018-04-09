@@ -29,6 +29,10 @@ export default ({ config, db }) => {
 		res.json({devices: family.returnDevices(), success: true});
 	});
 
+	api.get("/family", async (req, res) => {
+		res.json(family.getFamily());
+	})
+
 	api.get("/device/:name", async (req, res) => {
 		res.json(await family.returnDevice(req.params.name));
 	});

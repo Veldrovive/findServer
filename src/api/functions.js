@@ -108,6 +108,14 @@ export default class familyIterator {
     })
   }
 
+  getFamily(){
+    return {
+      name: this.family,
+      devices: this.deviceList,
+      locations: this.locationList
+    }
+  }
+
   addLocations(locArray){
     this.locationList = union(this.locationList, locArray);
     this.save();
