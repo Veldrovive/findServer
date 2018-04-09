@@ -1,0 +1,67 @@
+{
+  "name": "express-es6-rest-api",
+  "version": "0.3.0",
+  "description": "Starter project for an ES6 RESTful Express API",
+  "main": "dist",
+  "scripts": {
+    "dev": "concurrently \"npm run devApi\" \"npm run devWeb\"",
+    "devApi": "nodemon -w src --exec \"babel-node src\"",
+    "devWeb": "nodemon -w web --exec \"browserify --debug web/js -t babelify --outfile web/public/build/bundle.js\"",
+    "build": "concurrently \"npm run buildApi\" \"npm run buildWeb\"",
+    "buildApi": "babel src -s -D -d dist",
+    "buildWeb": "browserify web/js -t babelify --outfile web/public/build/bundle.js",
+    "start": "node dist",
+    "test": "eslint src"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": "developit/express-es6-rest-api",
+  "author": "Aidan Dempster <aidan.dempster@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "compression": "^1.5.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "jquery": "^3.3.1",
+    "lodash.findindex": "^4.6.0",
+    "lodash.maxby": "^4.6.0",
+    "lodash.union": "^4.6.0",
+    "morgan": "^1.8.0",
+    "nedb": "^1.8.0",
+    "request": "^2.85.0",
+    "resource-router-middleware": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "build/bundle.js"
+    ]
+  }
+}

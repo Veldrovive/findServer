@@ -1,0 +1,1 @@
+{"type":0,"name":"hometest","devices":[{"name":"pitwo","probs":[{"loc":"miniroom","prob":0.78},{"loc":"livingroom","prob":0.2},{"loc":"aidanroom","prob":0.01}]},{"name":"pione","probs":[{"loc":"miniroom","prob":0.76},{"loc":"livingroom","prob":0.22},{"loc":"aidanroom","prob":0}]}],"locations":["School","School2","AidanRoom","MiniRoom","LivingRoom"],"_id":"E7V0sQhe3DyFoMCY"}
