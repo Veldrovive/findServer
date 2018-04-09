@@ -4,7 +4,7 @@ import familyIterator from './functions.js'
 import facets from './facets';
 
 export default ({ config, db }) => {
-	let family = new familyIterator(config.family, db, config.interTime);
+	let family = new familyIterator(process.env.DEFAULT_FAMILY || config.family, db, process.env.DEFAULT_INTERTIME || config.interTime);
 	let api = Router();
 
 	// mount the facets resource
