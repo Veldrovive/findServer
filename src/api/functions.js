@@ -78,6 +78,7 @@ export default class familyIterator {
         this.getProb()
           .then(() => this.startInter());
       })
+      .catch(err => console.log(err));
     return;
   }
 
@@ -171,7 +172,8 @@ export default class familyIterator {
           const probs = device.analysis.guesses;
           let deviceIndex = findIndex(this.deviceList, o => {return o.name === name});
           if(findIndex === -1){
-            await this.getDevices();
+            await this.getDevices()
+              .catch(err => {console.log(err)});
             deviceIndex = findIndex(this.deviceList, o => {return o.name === name});
           }
           const currentDevice = this.deviceList[deviceIndex];
