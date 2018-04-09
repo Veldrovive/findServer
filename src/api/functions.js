@@ -57,6 +57,7 @@ export default class familyIterator {
     this.family = family || "aidantest2";
     this.interTime = interTime || 60000;
     this.interTime = this.interTime < 9999 ? 10000 : this.interTime;
+    this.lastUpdate = (new Date()).getTime();
 
     this.locationList = [];
 
@@ -89,6 +90,7 @@ export default class familyIterator {
         name: this.family,
         devices: this.deviceList,
         locations: this.locationList,
+        lastUpdate: this.lastUpdate,
       }
       this.db.count({name: this.family, type: 0}, (err, count) => {
         if(count === 0){
@@ -104,6 +106,7 @@ export default class familyIterator {
             return resolve(num);
           })
         }
+        this.lastUpdate = (new Date()).getTime();
       })
     })
   }
@@ -112,7 +115,8 @@ export default class familyIterator {
     return {
       name: this.family,
       devices: this.deviceList,
-      locations: this.locationList
+      locations: this.locationList,
+      lastUpdate: this.lastUpdate,
     }
   }
 
