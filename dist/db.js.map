@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/db.js"],"names":["db","callback"],"mappings":";;;;;;kBAAe,oBAAY;;AAE1B,KAAIA,WAAJ;;AAEAC,UAASD,EAAT;AACA,C","file":"db.js","sourcesContent":["export default callback => {\n\n\tlet db;\n\n\tcallback(db);\n}\n"]}
