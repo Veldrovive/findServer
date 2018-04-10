@@ -37,12 +37,8 @@ export default ({ config, db }) => {
 		res.json(await family.returnDevice(req.params.name));
 	});
 
-	api.post("/addLocations", async (req, res) => {
-		res.send(family.addLocations(req.body.locations));
-	});
-
 	api.get("/getLocations", async (req, res) => {
-		res.json({data: family.locationList, success: true});
+		res.json({data: family.getLocations(), success: true});
 	})
 
 	api.get("/save", async (req, res) => {

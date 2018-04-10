@@ -59,8 +59,6 @@ export default class familyIterator {
     this.interTime = this.interTime < 9999 ? 10000 : this.interTime;
     this.lastUpdate = (new Date()).getTime();
 
-    this.locationList = [];
-
     this.interList = [];
 
     //Format: {name: "pi", probs: [{loc: "lc1", prob: 82}, loc: "lc2", prob: 2]}
@@ -115,15 +113,18 @@ export default class familyIterator {
     return {
       name: this.family,
       devices: this.deviceList,
-      locations: this.locationList,
+      locations: this.getLocations(),
       lastUpdate: this.lastUpdate,
     }
   }
 
-  addLocations(locArray){
-    this.locationList = union(this.locationList, locArray);
-    this.save();
-    return this.locationList;
+  getLocations(){
+    const locations = [];
+    const probList = this.deviceList[0].probs;
+    probList.forEach(elem => {
+      locations.push(elem.loc);
+    })
+    return locations;
   }
 
   recall(){
